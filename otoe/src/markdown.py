@@ -1,4 +1,6 @@
 from pathlib import Path
+from typing import Any
+
 import yaml
 
 from otoe.src.constants import SEPARATOR
@@ -83,7 +85,7 @@ class MarkdownParser:
 
         return yaml_data
 
-    def parse(self) -> dict:
+    def parse(self) -> dict[str, Any]:
         """
         Parse markdown file into espanso yaml.
         """

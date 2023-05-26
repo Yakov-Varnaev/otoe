@@ -1,0 +1,6 @@
+test
+
+====
+```yaml
+trigger: :test
+```
