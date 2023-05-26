@@ -1,0 +1,5 @@
+
+====
+```yaml
+trigger: :key
+```
