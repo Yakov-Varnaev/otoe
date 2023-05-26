@@ -5,7 +5,7 @@ This is simple tool for espanso users. It allows to use obsidian as note editor 
 structure for md files:
 
 ```
-root/
+obsidian_root/
   project_name/
     file1.md
     file2.md
