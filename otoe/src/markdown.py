@@ -27,7 +27,7 @@ class MarkdownParser:
             raise FileNotFoundError(f'File {self.path} does not exist.')
 
     def open_file(self):
-        with open(self.path, 'r') as file:
+        with open(self.path, 'r', encoding='utf-8') as file:
             return file.read().strip()
 
     def check_layout(self, text: str):

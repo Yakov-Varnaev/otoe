@@ -70,7 +70,7 @@ class TestObsidian:
     def test_write_yamls(self):
         parser = ObsidianParser(obsidian_root)
         parser.write_yamls(parser.get_yamls_by_project())
-        match_path = obsidian_root / 'target' / 'matches.yaml'
+        match_path = obsidian_root / 'target' / 'matches.yml'
         assert match_path.exists()
         assert match_path.is_file()
         with open(match_path, 'r') as f:
