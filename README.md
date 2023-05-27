@@ -7,7 +7,7 @@
 This is simple tool for espanso users. It allows to use obsidian as note editor and then with just one command process them to match config.
 
 
-# structure
+# Obsidian root structure
 Structure for obsidian files:
 
 ```
