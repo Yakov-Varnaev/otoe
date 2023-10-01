@@ -77,6 +77,7 @@ class ObsidianParser:
         y = {'matches': matches}
         with open(self.target_path / 'matches.yml', 'w') as f:
             yaml.dump(y, f, encoding='utf-8', allow_unicode=True)
+        print(f'Wrote {len(matches)} matches to {self.target_path / "matches.yml"}')
 
     def parse(self):
         yamls_by_project = self.get_yamls_by_project()
