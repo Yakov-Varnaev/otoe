@@ -4,6 +4,8 @@ from pathlib import Path
 from typing import Any, Generator
 
 import yaml
+from alive_progress import alive_it
+from termcolor import colored
 
 from otoe.src.markdown import MarkdownParser
 
@@ -53,13 +55,14 @@ class ObsidianParser:
 
     def get_project_yamls(self, notes: list[ObsidianNote]) -> list[dict[str, Any]]:
         res = []
-        for note in notes:
+        for note in alive_it(notes):
             try:
                 res.append(note.get_yaml())
             except Exception as e:
                 print(f'Error parsing {note.path}: {e}')
             else:
-                print(f'Successfully parsed {note.path}')
+                pass
+                # print(f'Successfully parsed {note.path}')
         return res
 
     def get_yamls_by_project(self) -> dict[str, list[dict[str, Any]]]:
@@ -77,7 +80,12 @@ class ObsidianParser:
         y = {'matches': matches}
         with open(self.target_path / 'matches.yml', 'w') as f:
             yaml.dump(y, f, encoding='utf-8', allow_unicode=True)
-        print(f'Wrote {len(matches)} matches to {self.target_path / "matches.yml"}')
+        text = colored(
+            f'Wrote {len(matches)} matches to {self.target_path / "matches.yml"}',
+            'green',
+            attrs=['bold'],
+        )
+        print(text)
 
     def parse(self):
         yamls_by_project = self.get_yamls_by_project()
